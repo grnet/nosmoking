@@ -1,0 +1,117 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Mon May 20 14:34:08 2013
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("index" "Poll" "apps" "INSTA"))
+(setq regexp-search-ring nil)
+(setq register-alist '((48 . "†Ã†é†á †í†á †ä†ï†ý†ì†å †ô†é †è†á †ä†ï†ý†ì†å.\n\n†¶†ñ†á†ã†å †ð†á†ß†å")))
+(setq file-name-history '("~/Documents/Work/grnet/heallink" "~/Documents/Work/grnet/nosmoking/polls/" "~/Documents/Work/grnet/nosmoking/polls/templates/index.html" "~/Documents/Work/grnet/nosmoking/polls/templates/results.html" "~/Documents/Work/grnet/nosmoking/nosmoking/urls.py" "~/Documents/Work/grnet/nosmoking/polls/urls.py" "~/Documents/Work/grnet/nosmoking/polls/admin.py" "~/Documents/Work/grnet/nosmoking/nosmoking/admin.py" "~/Documents/Work/grnet/nosmoking/nosmoking/urls.py" "~/Documents/Work/grnet/nosmoking/polls/templates/detail.html" "~/Documents/Work/grnet/nosmoking/polls/templates/index.html" "~/Documents/Work/grnet/nosmoking/polls/templates/" "~/Documents/Work/grnet/nosmoking/polls/urls.py" "~/Documents/Work/grnet/nosmoking/nosmoking/urls.py" "~/Documents/Work/grnet/nosmoking/polls/urls.py" "~/Documents/Work/grnet/nosmoking/polls/views.py" "~/Documents/Work/grnet/heallink/heallink/settings.py" "~/Documents/Work/grnet/nosmoking/nosmoking/settings.py" "~/Documents/Work/grnet/nosmoking/polls/models.py" "~/Documents/Work/grnet/nosmoking/" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/Cloud_Financial.csv" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/assignments.csv" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/corrections.txt" "~/Documents/Work/grnet/heallink/poll/fixtures/users_4.csv" "~/Documents/Work/grnet/heallink/poll/fixtures/user_pass_5.csv" "~/Documents/Work/grnet/heallink/poll/fixtures/users_5.csv" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/missing.txt" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/assignments.csv" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/rates.csv" "~/Desktop/†Ô†ñ†ï†ð†ï†ð†ï†ß†ç†ó†ç/make_cloud_report.py"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/models.py"
+  "models.py"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  159
+  '(159 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/templates/detail.html"
+  "detail.html"
+  'html-mode
+  '(auto-fill-mode global-auto-revert-mode pony-tpl-minor-mode)
+  467
+  '(467 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/views.py"
+  "views.py"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  418
+  '(624 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/templates/index.html"
+  "index.html"
+  'html-mode
+  '(auto-fill-mode global-auto-revert-mode pony-tpl-minor-mode)
+  127
+  '(158 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/urls.py"
+  "urls.py"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  596
+  '(159 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/nosmoking/settings.py"
+  "settings.py"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  2761
+  '(231 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/templates/results.html"
+  "results.html"
+  'html-mode
+  '(auto-fill-mode global-auto-revert-mode pony-tpl-minor-mode)
+  247
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/nosmoking/urls.py"
+  "urls.py<2>"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  193
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/panos/Documents/Work/grnet/nosmoking/polls/admin.py"
+  "admin.py"
+  'python-mode
+  '(global-auto-revert-mode pony-minor-mode)
+  65
+  '(397 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+

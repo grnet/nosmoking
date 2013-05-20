@@ -3,6 +3,10 @@
 # C extensions
 *.so
 
+# emacs 
+*~
+.emacs.desktop
+
 # Packages
 *.egg
 *.egg-info

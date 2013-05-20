@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+{% block head %}
+<head>
+  {% load staticfiles %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "polls/css/bootstrap.min.css" %}"
+        media="screen"/>
+  <link rel="stylesheet"
+        href="{% static "polls/css/bootstrap-responsive.min.css" %}"/>        
+  <link rel="stylesheet" href="{% static "polls/css/nosmoking.css" %}"
+         media="screen"/>
+  <title>{% block title %}No Smoking Survey{% endblock %}</title>
+  <style>
+    </style>
+</head>
+{% endblock %}
+
+<body>
+  {% block main %}
+  <div id="wrap">
+    <div class="container" id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div id="push"></div>
+  </div>
+  {% endblock main %}
+  
+  <div id="footer">
+    <div class="container">
+      <p class="muted credit">
+        Greek Research and Technology Network
+        <a href="http://www.grnet.gr">(GRNET)</a>. Code at
+        <a href="https://github.com/grnet/heallink/">Github</a>.
+      </p>
+    </div>
+    
+  <script src="{% static "poll/js/jquery-1.9.1.min.js" %}"></script>
+  <script src="{% static "poll/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "poll/js/heallink.js" %}?r=2"></script>
+</body>
+</html>

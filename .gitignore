@@ -26,6 +26,9 @@ pip-log.txt
 .tox
 nosetests.xml
 
+# Local settings
+local_settings.py
+
 # Translations
 *.mo
 

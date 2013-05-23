@@ -11,9 +11,8 @@
 {% csrf_token %}
   <fieldset>
     <legend>
-      Επιθυμείτε να προσυπογράψετε επωνύμως το παρακάτω
-      κείμενο, που συντάχθηκε από την Εθνική Επιτροπή για τον Έλεγχο του
-      Καπνίσματος;
+      Επιθυμείτε να προσυπογράψετε το παρακάτω κείμενο, που συντάχθηκε
+      από την Εθνική Επιτροπή για τον Έλεγχο του Καπνίσματος;
     </legend>
 
     <blockquote class="declaration">
@@ -62,8 +61,9 @@
         <input type="text" class="input-small" placeholder="Επώνυμο">
       </div>
       </p>
-    <button type="submit" class="btn btn-primary">Προσυπογράφω</button>
-    <button type="submit" class="btn">Όχι</button>
+    <button type="submit" class="btn btn-primary">Συμφωνώ</button>
+    <button type="submit" class="btn-warning">Διαφωνώ</button>
+    <button type="submit" class="btn">Δεν έχω άποψη</button>    
   </fieldset>
 </form>
 

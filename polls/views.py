@@ -4,9 +4,9 @@ from django.shortcuts import render, get_object_or_404
 
 from django.core.urlresolvers import reverse
 
-from django.views import generic
+from models import Poll, Institution
 
-from models import Poll
+from forms import DetailForm
 
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -15,7 +15,13 @@ def index(request):
 
 def detail(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
-    return render(request, 'polls/detail.html', {'poll': poll})
+    questions = poll.question_set.all()
+    form = DetailForm(questions=questions)
+    return render(request, 'polls/detail.html',
+                  {
+                      'poll': poll,
+                      'form': form,
+                  })
 
 def results(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
@@ -23,26 +29,29 @@ def results(request, poll_id):
 
 def sign(request, poll_id):
     poll = get_object_or_404(Poll, pk=poll_id)
-    return render(request, 'polls/sign.html', {'poll': poll})
+    institution_list = Institution.objects.all().order_by('name')
+    return render(request, 'polls/sign.html',
+                  {
+                      'poll': poll,
+                      'institution_list': institution_list
+                  })
         
-def vote(request, poll_id):
-    p = get_object_or_404(Poll, pk=poll_id)
-    return HttpResponseRedirect(reverse('polls:sign', args=(p.id,)))
-    # try:
-    #     selected_choice = p.choice_set.get(pk=request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-    #     # Redisplay the poll voting form.
-    #     return render(request, 'polls/detail.html', {
-    #         'poll': p,
-    #         'error_message': "You didn't select a choice.",
-    #     })
-    # else:
-    #     selected_choice.votes += 1
-    #     selected_choice.save()
-    #     # Always return an HttpResponseRedirect after successfully dealing
-    #     # with POST data. This prevents data from being posted twice if a
-    #     # user hits the Back button.
-    #     return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
-
+def answer(request, poll_id):
+    poll = get_object_or_404(Poll, pk=poll_id)
+    questions = poll.question_set.all()
+    if request.method == 'POST':
+        form = DetailForm(request.POST, questions=questions)
+        if form.is_valid():
+            for a in form.answers():
+                print a
+            return HttpResponseRedirect(reverse('polls:sign',
+                                                args=(poll.id,)))
+    else:
+        form = ContactForm()
+    return render(request, 'polls/detail.html',
+                  {
+                      'poll': poll,
+                      'form': form,
+                  })
 
 

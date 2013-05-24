@@ -5,20 +5,16 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' poll.id %}" method="post">
+<form action="{% url 'polls:answer' poll.id %}" method="post">
 {% csrf_token %}
   <fieldset>
     <legend>Παρακαλούμε απαντήστε στις παρακάτω ερωτήσεις. Οι
     απαντήσεις σας θα παραμείνουν ανώνυμες.
     </legend>
-    {% for question in poll.question_set.all %}
-      <label>{{ question.question_text }}</label>
-      {% for choice in question.choice_set.all %}
-        <label class="radio">
-          <input type="radio" name="{{ forloop.parentloop.counter }}_choice"
-                 id="choice{{ forloop.counter }}"
-                 value="{{ choice.id }}">{{ choice.choice_text }}</input>
-        </label>
+    {% for field in form %}
+      <label>{{ field.label }}</label>
+      {% for choice in field %}
+        {{ choice }}
       {% endfor %}
     {% endfor %}
     <button type="submit" class="btn btn-primary">Υποβολή</button>

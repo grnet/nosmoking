@@ -34,7 +34,7 @@
         (<a href="{% static "polls/pdf/3730.pdf" %}">Ν. 3730/08</a>
         και
         <a href="{% static "polls/pdf/3868.pdf" %}">Ν.3868/10</a>) δεν
-        εφαρμόζονται και οι Διεθνείς Συμφωνίες (
+        εφαρμόζονται, και οι Διεθνείς Συμφωνίες (
         <a href="http://www.who.int/fctc/cop/art%208%20guidelines_english.pdf">
           World Health Organisation, Framework Convention on Tobacco
           Control, Article 8, Guidelines on Protection from Exposure
@@ -47,21 +47,40 @@
           αποφασιστικά και ζητούμε από την Ευρωπαϊκή Επιτροπή και από το
           <a href="http://www.ensp.org/">European Network for Smoking
           and Tobacco Prevention (ENSP)</a> την ανάληψη πρωτοβουλίας
-          προς κάθε κατεύθυνση για την ανάδειξη και επίσημη αναγνώριση
+          προς κάθε κατεύθυνση, για την ανάδειξη και επίσημη αναγνώριση
           του παθητικού καπνίσματος ως μείζονος παγκόσμιου θέματος
           παραβίασης ανθρωπίνων δικαιωμάτων υγείας, εργασίας και
           προστασίας της γυναίκας και του παιδιού.
         </strong>
       </p>
     </blockquote>
-    
-    <p class="lead">
-      <div class="control-group">
-        <input type="text" class="input-small" placeholder="Όνομα">
-        <input type="text" class="input-small" placeholder="Επώνυμο">
+
+    <div id="sign-modal" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+                aria-hidden="true">&times;</button>
+                <h3>Συμφωνώ</h3>
       </div>
-      </p>
-    <button type="submit" class="btn btn-primary">Συμφωνώ</button>
+      <div class="modal-body">
+        <div class="control-group">
+          <input type="text" class="input-small" placeholder="Όνομα">
+          <input type="text" class="input-small"
+                 placeholder="Επώνυμο">
+          <select>
+            {% for institution in institution_list %}
+            <option>{{ institution.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn">Ακύρωση</a>
+        <button type="submit" class="btn btn-primary">ΟΚ</a>
+      </div>
+    </div>    
+    <button type="submit" class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#sign-modal">Συμφωνώ</button>
     <button type="submit" class="btn-warning">Διαφωνώ</button>
     <button type="submit" class="btn">Δεν έχω άποψη</button>    
   </fieldset>

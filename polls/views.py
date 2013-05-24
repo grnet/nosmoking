@@ -33,14 +33,19 @@ def sign(request, poll_id, user_uuid):
     poll = get_object_or_404(Poll, pk=poll_id)
     participant = get_object_or_404(Participant, unique_id=user_uuid)    
     institution_list = Institution.objects.all().order_by('name')
-    return render(request, 'polls/thanks.html',
+    if request.method == 'POST':
+        return HttpResponseRedirect(reverse('polls:thanks',
+                                            args=(poll.id,
+                                                  user_uuid,)))
+    return render(request, 'polls/sign.html',
                   {
+                      'poll': poll,
                       'user_uuid': user_uuid,
                   })
 
-def thanks(request, user_uuid):
+def thanks(request, poll_id, user_uuid):
     participant = get_object_or_404(Participant, unique_id=user_uuid)        
-    return render(request, 'poll/thanks.html')
+    return render(request, 'polls/thanks.html')
     
 def answer(request, poll_id, user_uuid):
     poll = get_object_or_404(Poll, pk=poll_id)

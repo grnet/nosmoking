@@ -38,9 +38,10 @@ def sign(request, poll_id, user_uuid):
                                             args=(poll.id,
                                                   user_uuid,)))
     return render(request, 'polls/sign.html',
-                  {
+                  {                      
                       'poll': poll,
                       'user_uuid': user_uuid,
+                      'institution_list': institution_list,
                   })
 
 def thanks(request, poll_id, user_uuid):

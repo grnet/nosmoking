@@ -5,7 +5,8 @@
     <ul>
     {% for poll in latest_poll_list %}
         <li>
-          <a href="{% url 'polls:detail' poll.id %}">{{ poll.subject }}</a>
+          <a href="{% url 'polls:detail' poll.id 0 %}">
+            {{ poll.subject }}</a>
         </li>
     {% endfor %}
     </ul>

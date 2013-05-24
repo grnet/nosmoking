@@ -46,14 +46,14 @@ class Department(models.Model):
     name = models.CharField(max_length=100, unique=True)
         
 class Participant(models.Model):
-    
+    poll = models.ForeignKey(Poll)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=60)
     institution = models.ForeignKey(Institution)
     school = models.ForeignKey(School, null=True)
     department = models.ForeignKey(Department)
-    unique_id = models.CharField(max_length=100)
+    unique_id = models.CharField(max_length=100, unique=True)
 
     @classmethod
     def generate_unique_id(cls):
@@ -66,8 +66,12 @@ class Participant(models.Model):
                                 for x in range(50))
         return unique_id
 
-class Response(models.Model):
+    def get_response(self, choice):
+        related = Response.objects.select_related('choice__question')
+        filtered = filter(participant=self,
+                          choice__question=choice.question)
 
+class Response(models.Model):
     participant = models.ForeignKey(Participant)
     choice = models.ForeignKey(Choice)
     created_at = models.DateTimeField(auto_now_add=True)    

@@ -49,7 +49,7 @@ The files in fixtures should be:
                     action='store_true',
                     dest='departments',
                     help='create departments',
-                ),                        
+                ),
     )
     pth = os.path.abspath(polls.__path__[0])
 

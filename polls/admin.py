@@ -24,3 +24,6 @@ admin.site.register(Question, QuestionAdmin)
 admin.site.register(EmailMessage)
 admin.site.register(Notification)
 admin.site.register(Institution)
+admin.site.register(Response)
+admin.site.register(Sign)
+

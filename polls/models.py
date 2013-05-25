@@ -81,6 +81,13 @@ class Response(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)    
     modified_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return (self.participant.email
+                + " "
+                + self.choice.question.question_text
+                + " "
+                + self.choice.choice_text)
+
 class Sign(models.Model):
     participant = models.ForeignKey(Participant)
     agree = models.NullBooleanField()
@@ -89,6 +96,11 @@ class Sign(models.Model):
     institution = models.ForeignKey(Institution)
     created_at = models.DateTimeField(auto_now_add=True)    
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return (self.participant.email
+                + " "
+                + str((self.agree or "")))
 
 class EmailMessage(models.Model):
     poll = models.ForeignKey(Poll)

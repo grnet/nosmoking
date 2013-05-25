@@ -1,5 +1,5 @@
 from django.contrib import admin
-from polls.models import Poll, Question, Choice
+from polls.models import Poll, Question, Choice, EmailMessage, Notification
 
 class ChoiceInline(admin.TabularInline):
     model=Choice
@@ -21,3 +21,5 @@ class QuestionAdmin(admin.ModelAdmin):
     
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(EmailMessage)
+admin.site.register(Notification)

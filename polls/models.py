@@ -54,6 +54,7 @@ class Participant(models.Model):
     school = models.ForeignKey(School, null=True)
     department = models.ForeignKey(Department)
     unique_id = models.CharField(max_length=100, unique=True)
+    completed = models.BooleanField(default=False)
 
     @classmethod
     def generate_unique_id(cls):
@@ -70,9 +71,34 @@ class Participant(models.Model):
         related = Response.objects.select_related('choice__question')
         filtered = filter(participant=self,
                           choice__question=choice.question)
-
+        
 class Response(models.Model):
     participant = models.ForeignKey(Participant)
     choice = models.ForeignKey(Choice)
     created_at = models.DateTimeField(auto_now_add=True)    
     modified_at = models.DateTimeField(auto_now=True)
+
+class Sign(models.Model):
+    participant = models.ForeignKey(Participant)
+    agree = models.NullBooleanField()
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    institution = models.ForeignKey(Institution)
+    created_at = models.DateTimeField(auto_now_add=True)    
+    modified_at = models.DateTimeField(auto_now=True)
+
+class EmailMessage(models.Model):
+    poll = models.ForeignKey(Poll)
+    title = models.CharField(max_length=100, unique=True)
+    from_header = models.CharField(max_length=100)
+    subject_header = models.CharField(max_length=100)
+    body = models.TextField()
+
+    def __unicode__(self):
+        return self.title
+
+class Notification(models.Model):
+    participant = models.ForeignKey(Participant)
+    email_message = models.ForeignKey(EmailMessage)
+    created_at = models.DateTimeField(auto_now_add=True)
+

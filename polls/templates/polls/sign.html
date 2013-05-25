@@ -63,26 +63,35 @@
       </div>
       <div class="modal-body">
         <div class="control-group">
-          <input type="text" class="input-small" placeholder="Όνομα">
           <input type="text" class="input-small"
+                 name="first-name"
+                 placeholder="Όνομα">
+          <input type="text" class="input-small"
+                 name="last-name"
                  placeholder="Επώνυμο">
-          <select>
+          <select name="institution-id">
             {% for institution in institution_list %}
-            <option>{{ institution.name }}</option>
+            <option value="{{ institution.id }}">{{ institution.name }}</option>
             {% endfor %}
           </select>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" data-dismiss="modal" class="btn">Ακύρωση</a>
-        <button type="submit" class="btn btn-primary">ΟΚ</a>
+        <button type="submit"
+                name="sign-agree"
+                class="btn btn-primary">ΟΚ</a>
       </div>
     </div>    
-    <button type="submit" class="btn btn-primary"
+    <button type="submit"
+            class="btn btn-primary"
             data-toggle="modal"
             data-target="#sign-modal">Συμφωνώ</button>
-    <button type="submit" class="btn-warning">Διαφωνώ</button>
-    <button type="submit" class="btn">Δεν έχω άποψη</button>    
+    <button type="submit" name="sign-disagree"
+            class="btn-warning">Διαφωνώ</button>
+    <button type="submit"
+            name="sign-no-opinion"
+            class="btn">Δεν έχω άποψη</button>    
   </fieldset>
 </form>
 

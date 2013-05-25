@@ -39,6 +39,9 @@ class Choice(models.Model):
 class Institution(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    def __unicode__(self):
+        return self.name
+
 class School(models.Model):
     name = models.CharField(max_length=100, unique=True)
 

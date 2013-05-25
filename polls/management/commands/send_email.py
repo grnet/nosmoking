@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from django.core.mail import get_connection
 
-from polls.models import Participant, EmailMessage
+from polls.models import Participant, EmailMessage, Notification
 
 from optparse import make_option
 
@@ -98,7 +98,6 @@ in which case messages are sent to the recipients contained in the input file.
         else:
             participants = Participant.objects.filter(email__in=args)
         for participant in participants:
-            print "HEY, ", participant.unique_id
             body = self.make_message(participant,
                                      {},
                                      message_template)

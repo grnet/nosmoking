@@ -8,7 +8,7 @@ from models import Poll, Institution, Participant, Response, Sign
 
 from forms import DetailForm
 
-SHOW_SIGNATURES_COUNT_LIMIT = 100
+SHOW_SIGNATURES_COUNT_LIMIT = 1000
 
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -79,9 +79,7 @@ def sign(request, poll_id, user_uuid):
 def thanks(request, poll_id, user_uuid):
     participant = get_object_or_404(Participant, unique_id=user_uuid)
     signature_count = Sign.objects.all().count()
-    participant_count =  Participant.objects.all().count()
-    show_signature_count = ((participant_count / signature_count)
-                            > SHOW_SIGNATURES_COUNT_LIMIT)
+    show_signature_count =  signature_count > SHOW_SIGNATURES_COUNT_LIMIT
     return render(request, 'polls/thanks.html',                  
                   {
                       'show_signature_count': show_signature_count,

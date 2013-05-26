@@ -3,5 +3,10 @@
 {% block content %}
 
 <p class="lead">Ευχαριστούμε για τη συμμετοχή σας.</p>
+{% if show_signature_count %}
+  Μέχρι αυτή
+  τη στιγμή έχουμε {{ signature_count }} συμμετοχές στην έρευνα.
+{% endif %}
+</p>
   
 {% endblock %}

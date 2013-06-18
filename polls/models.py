@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 import random
 import string
 
+import base64
+
 random.seed()
 
 class Poll(models.Model):
@@ -102,16 +104,32 @@ class Sign(models.Model):
                 + " "
                 + str((self.agree or "")))
 
+
+class Attachment(models.Model):
+    filename = models.CharField(max_length=100)
+    mimetype = models.CharField(max_length=100)
+    _data = models.TextField(db_column='data', blank=True)
+    
+    def set_data(self, data):
+        self._data = base64.encodestring(data)
+
+    def get_data(self):
+        return base64.decodestring(self._data)
+
+    data = property(get_data, set_data)
+
 class EmailMessage(models.Model):
     poll = models.ForeignKey(Poll)
     title = models.CharField(max_length=100, unique=True)
     from_header = models.CharField(max_length=100)
     subject_header = models.CharField(max_length=100)
     body = models.TextField()
+    attachments = models.ManyToManyField(Attachment,
+                                         db_table='polls_message_attachment')
 
     def __unicode__(self):
         return self.title
-
+    
 class Notification(models.Model):
     participant = models.ForeignKey(Participant)
     email_message = models.ForeignKey(EmailMessage)

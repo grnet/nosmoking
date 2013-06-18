@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from django.core.mail import send_mail
+import django.core.mail as dm
 from django.core.exceptions import ObjectDoesNotExist
 
 from django.core.mail import get_connection
@@ -97,16 +97,21 @@ in which case messages are sent to the recipients contained in the input file.
                     email__in=emails)
         else:
             participants = Participant.objects.filter(email__in=args)
+        
         for participant in participants:
             body = self.make_message(participant,
                                      {},
                                      message_template)
-            send_mail(message.subject_header,
-                      body,
-                      message.from_header,
-                      [participant.email],
-                      fail_silently=False,
-                      connection=backend)
+            msg = dm.EmailMessage(message.subject_header,
+                                  body,
+                                  message.from_header,
+                                  [participant.email],
+                                  connection=backend)
+            for attachment in message.attachments.all():
+                print attachment.filename
+                msg.attach(attachment.filename, attachment.data,
+                           attachment.mimetype)
+            msg.send()
             if not options['file_back_end'] and not options['console_back_end']:
                 notification = Notification(participant=participant,
                                             email_message=message)

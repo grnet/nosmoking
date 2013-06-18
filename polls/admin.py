@@ -21,6 +21,7 @@ class QuestionAdmin(admin.ModelAdmin):
     
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Attachment)
 admin.site.register(EmailMessage)
 admin.site.register(Notification)
 admin.site.register(Institution)

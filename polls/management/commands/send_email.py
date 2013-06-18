@@ -108,7 +108,6 @@ in which case messages are sent to the recipients contained in the input file.
                                   [participant.email],
                                   connection=backend)
             for attachment in message.attachments.all():
-                print attachment.filename
                 msg.attach(attachment.filename, attachment.data,
                            attachment.mimetype)
             msg.send()
